@@ -63,7 +63,9 @@ function renderLibrary() {
       <div class="book-pages">${book.pages}</div>
       <div class="book-author">${book.author}</div>
       <div class="book-read">${book.read}</div>
+      <button class="read-toggle"><i class="material-symbols-outlined"> book </i></button>
       <button class="delete-book">Delete</button>
+      <a
     </div>
         `;
     libraryContainer.insertAdjacentHTML("afterbegin", htmlCard);
@@ -75,6 +77,19 @@ function renderLibrary() {
       if (cardElement) {
         cardElement.remove();
       }
+    });
+  });
+
+  document.querySelectorAll(".read-toggle").forEach((readToggleButton) => {
+    readToggleButton.addEventListener("click", function () {
+      const cardElement = this.closest(".card");
+      const cardIndex = cardElement.dataset.bookIndex;
+      if (myLibrary[cardIndex].read == true) {
+        myLibrary[cardIndex].read = false;
+      } else {
+        myLibrary[cardIndex].read = true;
+      }
+      renderLibrary();
     });
   });
 }
