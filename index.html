@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <div class="new-book-background">
+    <div class="new-book-overlay">
       <form id="new-book-form" class="form-card">
         <div class="form-card-title">Add New Book</div>
         <div class="form">
@@ -42,11 +42,12 @@
     </div>
     <div><button id="new-book">New Book</button></div>
     <div id="my-library">
-      <div class="card">
+      <div class="card" data-book-index="0">
         <div class="book-title">${book.title}</div>
         <div class="book-pages">${book.pages}</div>
         <div class="book-author">${book.author}</div>
         <div class="book-read">${book.read}</div>
+        <button>Delete</button>
       </div>
     </div>
     <script src="script.js"></script>

@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-let newBookForm = document.querySelector(".new-book-background");
+let newBookFormOverlay = document.querySelector(".new-book-overlay");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -13,15 +13,15 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-newBookForm.addEventListener("click", (e) => {
+newBookFormOverlay.addEventListener("click", (e) => {
   const newFormCard = document.querySelector(".form-card");
   if (!newFormCard.contains(e.target)) {
-    newBookForm.style.display = "none";
+    newBookFormOverlay.style.display = "none";
   }
 });
 
 document.getElementById("new-book").addEventListener("click", () => {
-  newBookForm.style.display = "flex";
+  newBookFormOverlay.style.display = "flex";
 });
 
 document.querySelector("#new-book-form").addEventListener("submit", (e) => {
@@ -37,8 +37,8 @@ document.querySelector("#new-book-form").addEventListener("submit", (e) => {
     formBookObj["new-read"] == "read" ? true : false
   );
   addBookToLibrary(newBook);
-  render();
-  newBookForm.style.display = "none";
+  renderLibrary();
+  newBookFormOverlay.style.display = "none";
 });
 
 function initialBooks() {
@@ -53,22 +53,32 @@ function initialBooks() {
   addBookToLibrary(bookD);
 }
 
-function render() {
-  const library = document.getElementById("my-library");
-  library.innerHTML = "";
-  myLibrary.forEach((book) => {
+function renderLibrary() {
+  const libraryContainer = document.getElementById("my-library");
+  libraryContainer.innerHTML = "";
+  myLibrary.forEach((book, i) => {
     const htmlCard = `
-        <div class="card">
-        <div class="book-title">${book.title}</div>
-        <div class="book-pages">${book.pages}</div>
-        <div class="book-author">${book.author}</div>
-        <div class="book-read">${book.read}</div>
-        </div>
+    <div class="card" data-book-index=${i}>
+      <div class="book-title">${book.title}</div>
+      <div class="book-pages">${book.pages}</div>
+      <div class="book-author">${book.author}</div>
+      <div class="book-read">${book.read}</div>
+      <button class="delete-book">Delete</button>
+    </div>
         `;
-    library.insertAdjacentHTML("afterbegin", htmlCard);
+    libraryContainer.insertAdjacentHTML("afterbegin", htmlCard);
+  });
+
+  document.querySelectorAll(".delete-book").forEach((deleteButton) => {
+    deleteButton.addEventListener("click", function () {
+      const cardElement = this.closest(".card");
+      if (cardElement) {
+        cardElement.remove();
+      }
+    });
   });
 }
 
 initialBooks();
-render();
+renderLibrary();
 console.log(myLibrary);
