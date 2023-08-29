@@ -24,6 +24,23 @@ document.getElementById("new-book").addEventListener("click", () => {
   newBookForm.style.display = "flex";
 });
 
+document.querySelector("#new-book-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const newBookData = new FormData(e.target);
+  const formBookObj = {};
+  newBookData.forEach((value, key) => (formBookObj[key] = value));
+  console.log(formBookObj);
+  const newBook = new Book(
+    formBookObj["new-title"],
+    formBookObj["new-author"],
+    formBookObj["new-pages"],
+    formBookObj["new-read"] == "read" ? true : false
+  );
+  addBookToLibrary(newBook);
+  render();
+  newBookForm.style.display = "none";
+});
+
 function initialBooks() {
   const bookA = new Book("titleA", "authorA", "A pages", false);
   const bookB = new Book("titleB", "authorB", "B pages", true);

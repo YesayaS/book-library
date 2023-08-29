@@ -6,11 +6,11 @@
 body {
   height: 100vh;
   font-size: 1rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
-button:hover{
-    cursor: pointer;
+button:hover {
+  cursor: pointer;
 }
 
 .card {
@@ -44,7 +44,7 @@ button:hover{
 }
 
 .form-card {
-    background-color: white;
+  background-color: white;
   border: 3px black solid;
   border-radius: 15px;
   display: flex;
@@ -52,15 +52,15 @@ button:hover{
   justify-content: center;
 }
 
-.form-card-title{
-    display: flex;
-    justify-content: center;
-    margin: 15px 0px;
-    font-weight: 900;
+.form-card-title {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0px;
+  font-weight: 900;
 }
 
 .form {
-    margin: 0 10px;
+  margin: 0 10px;
   padding: 15px 5px;
   display: flex;
   justify-content: space-between;
@@ -70,7 +70,7 @@ button:hover{
 }
 
 .form > input {
-    padding: 5px 10px;
+  padding: 5px 10px;
   width: min(150px);
   font-size: 0.9rem;
   outline: 2px black solid;
@@ -78,38 +78,36 @@ button:hover{
 }
 
 .form > input:focus {
-    /* scale: 1.05; */
-    border-radius: 5px;
-    /* border: 1px black solid; */
-    outline: 2px black solid;
+  border-radius: 5px;
+  outline: 2px black solid;
 }
 
-.form > select{
-    padding: 5px;
-    border: 1px solid black;
+.form > select {
+  padding: 5px;
+  border: 1px solid black;
 }
 
-.form-card-button{
-    display: flex;
-    justify-content: center;
-    margin: 15px 0px;
-    font-weight: 900;
+.form-card-button {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0px;
+  font-weight: 900;
 }
 
-.form-card-button>button{
-    width: 90%;
-    padding: 10px 30px;
-    border-radius: 10px;
-    color: white;
-    background-color: #0369a1;
+.form-card-button > button {
+  width: 90%;
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: white;
+  background-color: #0369a1;
 }
 
-.form-card-button>button:hover{
-    filter: brightness(85%);
+.form-card-button > button:hover {
+  filter: brightness(85%);
 }
 
-.form-card-button>button:active{
-    scale: 0.95;
+.form-card-button > button:active {
+  scale: 0.95;
 }
 .form + .form {
   border-top: 1px black solid;
