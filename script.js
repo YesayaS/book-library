@@ -57,8 +57,9 @@ function renderLibrary() {
   const libraryContainer = document.getElementById("my-library");
   libraryContainer.innerHTML = "";
   myLibrary.forEach((book, i) => {
+    const haveRead = book.read == true ? "have-read" : "have-not-read";
     const htmlCard = `
-    <div class="card" data-book-index=${i}>
+    <div class="card ${haveRead}" data-book-index=${i}>
       <div class="book-title">${book.title}</div>
       <div class="book-pages">${book.pages}</div>
       <div class="book-author">${book.author}</div>
@@ -75,14 +76,16 @@ function renderLibrary() {
     deleteButton.addEventListener("click", function () {
       const cardElement = this.closest(".card");
       if (cardElement) {
-        cardElement.remove();
+        const cardElementIndex = cardElement.dataset.bookIndex;
+        myLibrary.splice(cardElementIndex, 1);
+        renderLibrary();
       }
     });
   });
 
   document.querySelectorAll(".read-toggle").forEach((readToggleButton) => {
     readToggleButton.addEventListener("click", function () {
-      const cardElement = this.closest(".card");
+      let cardElement = this.closest(".card");
       const cardIndex = cardElement.dataset.bookIndex;
       if (myLibrary[cardIndex].read == true) {
         myLibrary[cardIndex].read = false;
