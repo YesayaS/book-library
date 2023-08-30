@@ -22,15 +22,15 @@
         <div class="form-card-title">Add New Book</div>
         <div class="form">
           <label for="new-title">Title</label
-          ><input type="text" name="new-title" />
+          ><input type="text" name="new-title" autocomplete="off" />
         </div>
         <div class="form">
           <label for="new-author">Author </label
-          ><input type="text" name="new-author" />
+          ><input type="text" name="new-author" autocomplete="off" />
         </div>
         <div class="form">
           <label for="new-pages">Page(s) </label
-          ><input type="text" name="new-pages" />
+          ><input type="text" name="new-pages" autocomplete="off" />
         </div>
         <div class="form">
           <label for="new-read">Have Read?</label
@@ -44,15 +44,17 @@
         </div>
       </form>
     </div>
-    <div><button id="new-book">New Book</button></div>
+    <div id="header-container">
+      <button id="new-book">Add New Book</button>
+      <div>My Library</div>
+    </div>
     <div id="my-library">
       <div class="card" data-book-index="0">
         <div class="book-title">${book.title}</div>
         <div class="book-pages">${book.pages}</div>
         <div class="book-author">${book.author}</div>
-        <div class="book-read">${book.read}</div>
         <button><i class="material-symbols-outlined"> book </i></button>
-        <button>Delete</button>
+        <button><i class="material-symbols-outlined"> delete </i></button>
       </div>
     </div>
     <script src="script.js"></script>

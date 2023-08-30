@@ -63,9 +63,10 @@ function renderLibrary() {
       <div class="book-title">${book.title}</div>
       <div class="book-pages">${book.pages}</div>
       <div class="book-author">${book.author}</div>
-      <div class="book-read">${book.read}</div>
-      <button class="read-toggle"><i class="material-symbols-outlined"> book </i></button>
-      <button class="delete-book">Delete</button>
+      <button class="read-toggle"><i class="material-symbols-outlined">book</i></button>
+      <button class="delete-book"><i class="material-symbols-outlined">
+      delete
+      </i></button>
       <a
     </div>
         `;
