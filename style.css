@@ -62,6 +62,7 @@ button:hover {
 .form > input {
   padding: 5px 10px;
   width: min(150px);
+  text-align: end;
   font-family: "Rubik";
   font-size: 0.95rem;
   outline: 2px black solid;

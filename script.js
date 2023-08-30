@@ -42,10 +42,10 @@ document.querySelector("#new-book-form").addEventListener("submit", (e) => {
 });
 
 function initialBooks() {
-  const bookA = new Book("titleA", "authorA", "A pages", false);
-  const bookB = new Book("titleB", "authorB", "B pages", true);
-  const bookC = new Book("titleC", "authorC", "C pages", true);
-  const bookD = new Book("titleD", "authorD", "D pages", false);
+  const bookA = new Book("titleA", "authorA", "A", false);
+  const bookB = new Book("titleB", "authorB", "B", true);
+  const bookC = new Book("titleC", "authorC", "C", true);
+  const bookD = new Book("titleD", "authorD", "D", false);
 
   addBookToLibrary(bookA);
   addBookToLibrary(bookB);
@@ -58,11 +58,13 @@ function renderLibrary() {
   libraryContainer.innerHTML = "";
   myLibrary.forEach((book, i) => {
     const haveRead = book.read == true ? "have-read" : "have-not-read";
+    const bookPage = book.pages == "" ? "-" : book.pages;
+    const bookAuthor = book.author == "" ? "-" : book.author;
     const htmlCard = `
     <div class="card ${haveRead}" data-book-index=${i}>
       <div class="book-title">${book.title}</div>
-      <div class="book-pages">${book.pages}</div>
-      <div class="book-author">${book.author}</div>
+      <div class="book-pages">${bookPage} Page(s)</div>
+      <div class="book-author">${bookAuthor}</div>
       <button class="read-toggle"><i class="material-symbols-outlined">book</i></button>
       <button class="delete-book"><i class="material-symbols-outlined">
       delete
