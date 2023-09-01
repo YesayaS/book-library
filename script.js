@@ -59,6 +59,11 @@ const library = new (class {
     this.books.splice(bookIndex, 1);
     BookCardManager.update(this.books);
   }
+  toggleReadStatus(bookIndex) {
+    this.books[bookIndex].readStatus =
+      this.books[bookIndex].readStatus == true ? false : true;
+    BookCardManager.update(this.books);
+  }
   get bookList() {
     return this.books;
   }
@@ -102,9 +107,16 @@ const BookCardManager = new (class {
           `;
       this.libraryContainer.insertAdjacentHTML("afterbegin", cardInnerHTML);
     });
+    document.querySelectorAll(".book-card__read-toggle").forEach((button) => {
+      button.addEventListener("click", this.toggleReadStatus);
+    });
     document.querySelectorAll(".book-card__delete").forEach((button) => {
       button.addEventListener("click", this.delete);
     });
+  }
+  toggleReadStatus() {
+    const cardElement = this.closest(".book-card");
+    library.toggleReadStatus(cardElement.dataset.bookIndex);
   }
   delete() {
     const cardElement = this.closest(".book-card");
