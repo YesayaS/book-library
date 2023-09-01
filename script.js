@@ -54,8 +54,9 @@ const library = new (class {
     this.books.push(book);
     BookCardManager.update(this.books);
   }
-  removeBook(book) {
-    this.books.splice(book, 1);
+  removeBook(bookIndex) {
+    this.books.splice(bookIndex, 1);
+    BookCardManager.update(this.books);
   }
   get bookList() {
     return this.books;
@@ -76,6 +77,7 @@ class Book {
 
 const BookCardManager = new (class {
   libraryContainer = document.querySelector("#my-library-container");
+
   update(books) {
     this.libraryContainer.innerHTML = "";
     books.forEach((book, i) => {
@@ -97,6 +99,13 @@ const BookCardManager = new (class {
           `;
       this.libraryContainer.insertAdjacentHTML("afterbegin", cardInnerHTML);
     });
+    document.querySelectorAll(".book-card__delete").forEach((button) => {
+      button.addEventListener("click", this.delete);
+    });
+  }
+  delete() {
+    const cardElement = this.closest(".book-card");
+    library.removeBook(cardElement.dataset.bookIndex);
   }
 })();
 
