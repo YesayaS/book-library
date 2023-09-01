@@ -44,6 +44,7 @@ const AddNewBook = new (class {
       formBookObj["new-read"] == "read" ? true : false
     );
     library.addBook(newBook);
+    document.querySelector("#newbook-form").reset();
     document.querySelector("#newbook-modal").style.display = "none";
   }
 })();
@@ -82,6 +83,8 @@ const BookCardManager = new (class {
     this.libraryContainer.innerHTML = "";
     books.forEach((book, i) => {
       let [title, author, pages, readStatus] = book.bookData;
+      author = author == "" ? "-" : author;
+      pages = pages == "" ? "-" : pages;
       readStatus =
         readStatus == true ? "book-card--read" : "book-card--not-read";
       let cardInnerHTML = `
