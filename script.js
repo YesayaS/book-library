@@ -1,15 +1,3 @@
-// const htmlCard = `
-//     <div class="card ${haveRead}" data-book-index=${i}>
-//       <div class="book-title">${book.title}</div>
-//       <div class="book-pages">${bookPage} Page(s)</div>
-//       <div class="book-author">${bookAuthor}</div>
-//       <button class="read-toggle"><i class="material-symbols-outlined">book</i></button>
-//       <button class="delete-book"><i class="material-symbols-outlined">
-//       delete
-//       </i></button>
-//     </div>
-//         `;
-
 const AddNewBook = new (class {
   NewBookButton = document
     .querySelector("#btn-new-book")
@@ -124,12 +112,11 @@ const BookCardManager = new (class {
   }
 })();
 
-const bookA = new Book("titleA", "authorA", "A", false);
-const bookB = new Book("titleB", "authorB", "B", true);
+const example = new Book(
+  "Book Title - (Remove me!)",
+  "Book Author",
+  "X",
+  false
+);
 
-library.addBook(bookA);
-library.addBook(bookB);
-
-library.bookList.forEach((book) => {
-  console.log(book.title);
-});
+library.addBook(example);

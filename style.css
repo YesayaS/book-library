@@ -10,12 +10,12 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
-button{
-  font-family: 'Rubik';
+button {
+  font-family: "Rubik";
   font-size: 0.9rem;
 }
 
-button:active{
+button:active {
   scale: 0.95;
 }
 
@@ -79,7 +79,7 @@ button:hover {
   border: 2px solid black;
 }
 
-.newbook-form__container > select:active{
+.newbook-form__container > select:active {
   border: 2px solid black;
 }
 
@@ -108,7 +108,6 @@ button:hover {
   filter: brightness(85%);
 }
 
-
 #header-container {
   min-width: 500px;
   display: flex;
@@ -131,15 +130,15 @@ button:hover {
   box-shadow: 2px 2px black;
 }
 
-.book-card--read{
-  background-color:  #e5e5e5;
+.book-card--read {
+  background-color: #e5e5e5;
 }
 
-.book-card--not-read{
+.book-card--not-read {
   background-color: white;
 }
 
-#my-library-container{
+#my-library-container {
   min-width: 500px;
   display: flex;
   flex-direction: column;
@@ -161,19 +160,18 @@ button:hover {
   box-shadow: 2px 2px;
 }
 
-.book-card > button{
+.book-card > button {
   margin: 0 10%;
   aspect-ratio: 1;
   background-color: rgba(0, 0, 0, 0);
 }
 
-.book-card > button:hover{
+.book-card > button:hover {
   border-radius: 50%;
   background-color: #f5f5f5;
 }
 
-
-.book-card__title{
+.book-card__title {
   font-weight: 600;
 }
 
@@ -187,12 +185,12 @@ button:hover {
   grid-row: 2/3;
 }
 
-.book-card__read-toggle{
+.book-card__read-toggle {
   grid-column: 3/4;
   grid-row: 1/3;
 }
 
-.book-card__delete{
+.book-card__delete {
   grid-column: 4/5;
   grid-row: 1/3;
 }
