@@ -17,44 +17,68 @@
     />
   </head>
   <body>
-    <div class="new-book-overlay">
-      <form id="new-book-form" class="form-card">
-        <div class="form-card-title">Add New Book</div>
-        <div class="form">
-          <label for="new-title">Title</label
-          ><input type="text" name="new-title" autocomplete="off" required />
-        </div>
-        <div class="form">
-          <label for="new-author">Author </label
-          ><input type="text" name="new-author" autocomplete="off" />
-        </div>
-        <div class="form">
-          <label for="new-pages">Page(s) </label
-          ><input type="number" name="new-pages" autocomplete="off" />
-        </div>
-        <div class="form">
-          <label for="new-read">Have Read?</label
-          ><select name="new-read" id="new-read">
-            <option value="read">Read</option>
-            <option value="not-read">Not Read</option>
-          </select>
-        </div>
-        <div class="form-card-button">
-          <button id="add-book" type="submit" form="new-book-form">Add</button>
-        </div>
-      </form>
+    <div id="newbook-modal">
+      <div id="newbook-container">
+        <div id="newbook-form-header">Add New Book</div>
+        <form action="" id="newbook-form" class="newbook-form">
+          <div class="newbook-form__container">
+            <label for="new-title">Title</label
+            ><input
+              type="text"
+              id="new-title"
+              name="new-title"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="newbook-form__container">
+            <label for="new-author">Author </label
+            ><input
+              type="text"
+              id="new-author"
+              name="new-author"
+              autocomplete="off"
+            />
+          </div>
+          <div class="newbook-form__container">
+            <label for="new-pages">Page(s) </label
+            ><input
+              type="number"
+              id="new-pages"
+              name="new-pages"
+              autocomplete="off"
+            />
+          </div>
+          <div class="newbook-form__container">
+            <label for="new-read">Have Read?</label
+            ><select name="new-read" id="new-read">
+              <option value="read">Read</option>
+              <option value="not-read">Not Read</option>
+            </select>
+          </div>
+          <div class="newbook-form__submit">
+            <button id="btn-add-book" type="submit" form="newbook-form">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
     <div id="header-container">
-      <button id="new-book">Add New Book</button>
+      <button id="btn-new-book">Add New Book</button>
       <div>My Library</div>
     </div>
-    <div id="my-library">
-      <div class="card" data-book-index="0">
-        <div class="book-title">${book.title}</div>
-        <div class="book-pages">${book.pages}</div>
-        <div class="book-author">${book.author}</div>
-        <button><i class="material-symbols-outlined"> book </i></button>
-        <button><i class="material-symbols-outlined"> delete </i></button>
+    <div id="my-library-container">
+      <div class="book-card ${haveRead}" data-book-index="${i}">
+        <div class="book-card__title">${book.title}</div>
+        <div class="book-card__pages">${bookPage} Page(s)</div>
+        <div class="book-card__author">${bookAuthor}</div>
+        <button class="book-card__read-toggle">
+          <i class="material-symbols-outlined">book</i>
+        </button>
+        <button class="book-card__delete">
+          <i class="material-symbols-outlined"> delete </i>
+        </button>
       </div>
     </div>
     <script src="script.js"></script>
