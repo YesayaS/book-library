@@ -10,11 +10,35 @@
 //     </div>
 //         `;
 
+const AddNewBook = new (class {
+  addNewBook = document
+    .querySelector("#btn-new-book")
+    .addEventListener("click", this.showModal);
+  newBookModal = document
+    .querySelector("#newbook-modal")
+    .addEventListener("click", (e) => this.closeModal(e));
+
+  showModal() {
+    document.querySelector("#newbook-modal").style.display = "flex";
+    this.closeModal;
+  }
+  closeModal(e) {
+    const newBookModal = document.querySelector("#newbook-modal");
+    const newbookContainer = document.querySelector("#newbook-container");
+    if (!newbookContainer.contains(e.target)) {
+      newBookModal.style.display = "none";
+    }
+  }
+})();
+
 const library = new (class {
   books = [];
   addBook(book) {
     this.books.push(book);
     BookCardManager.update(this.books);
+  }
+  removeBook(book) {
+    this.books.splice(book, 1);
   }
   get bookList() {
     return this.books;
