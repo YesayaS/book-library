@@ -118,6 +118,7 @@ button:hover {
   padding-right: 50px;
   background-color: white;
   font-size: 3rem;
+  border-bottom: 5px solid black;
 }
 
 #btn-new-book {
@@ -139,6 +140,7 @@ button:hover {
 }
 
 #my-library-container{
+  min-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
