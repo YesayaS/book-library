@@ -11,12 +11,15 @@
 //         `;
 
 const AddNewBook = new (class {
-  addNewBook = document
+  NewBookButton = document
     .querySelector("#btn-new-book")
     .addEventListener("click", this.showModal);
   newBookModal = document
     .querySelector("#newbook-modal")
     .addEventListener("click", (e) => this.closeModal(e));
+  addBookButton = document
+    .querySelector("#newbook-form")
+    .addEventListener("submit", (e) => this.addBook(e));
 
   showModal() {
     document.querySelector("#newbook-modal").style.display = "flex";
@@ -28,6 +31,20 @@ const AddNewBook = new (class {
     if (!newbookContainer.contains(e.target)) {
       newBookModal.style.display = "none";
     }
+  }
+  addBook(e) {
+    e.preventDefault();
+    const BookData = new FormData(e.target);
+    const formBookObj = {};
+    BookData.forEach((value, key) => (formBookObj[key] = value));
+    const newBook = new Book(
+      formBookObj["new-title"],
+      formBookObj["new-author"],
+      formBookObj["new-pages"],
+      formBookObj["new-read"] == "read" ? true : false
+    );
+    library.addBook(newBook);
+    document.querySelector("#newbook-modal").style.display = "none";
   }
 })();
 
